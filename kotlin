@@ -1,0 +1,116 @@
+fun main() {
+    fun main() {
+        val story = Story("Crazy monkeys", 10, "Children")
+        val storyTeller = StoryTeller("John Smith", "English")
+        val translator = Translator("English", "French")
+
+        println("Story Details:")
+        println("Title: ${story.title}")
+        println("Length: ${story.length}")
+        println("Age Group: ${story.ageGroup}")
+
+        println("StoryTeller Details:")
+        println("Name: ${storyTeller.name}")
+        println("Language: ${storyTeller.language}")
+
+        println("Translator Details:")
+        println("From Language: ${translator.fromLanguage}")
+        println("To Language: ${translator.toLanguage}")
+
+
+        val student1 = Student("Emma Sparks", 18, listOf(80, 75, 90))
+        val student2 = Student("Will Smith", 20, listOf(70, 65, 55))
+
+        println("Student 1 Information:")
+        student1.displayStudentInfo()
+        println("Average Grade: ${student1.calculateAverageGrade()}")
+        println("Passing Status: ${student1.determinePassingStatus()}")
+
+        println("Student 2 Information:")
+        student2.displayStudentInfo()
+        println("Average Grade: ${student2.calculateAverageGrade()}")
+        println("Passing Status: ${student2.determinePassingStatus()}")
+
+
+        val product1 = Product("Shirt", 25.99, 5)
+        val product2 = Product("Shoes", 59.99, 2)
+        val product3 = Product("Hat", 12.99, 10)
+        val totalValue1 = product1.calculateTotalValue()
+        val totalValue2 = product2.calculateTotalValue()
+        val totalValue3 = product3.calculateTotalValue()
+
+
+        println("Total value of ${product1.name}: $$totalValue1")
+        println("Total value of ${product2.name}: $$totalValue2")
+        println("Total value of ${product3.name}: $$totalValue3")
+
+
+
+    }
+
+}
+
+//Question1 Ancestral stories
+class Story(val title: String, val length: Int, val ageGroup: String) {
+
+}
+
+class StoryTeller(val name: String, val language: String) {
+
+}
+
+class Translator(val fromLanguage: String, val toLanguage: String) {
+
+}
+
+
+
+//Question2 African Cuisine
+
+open class Recipe(val name: String, val preparationTime: Int) {
+
+}
+
+class MoroccanRecipe(name: String, preparationTime: Int, val spiceLevel: Int) : Recipe(name, preparationTime) {
+
+}
+
+class EthiopianRecipe(name: String, preparationTime: Int, val injeraRequired: Boolean) : Recipe(name, preparationTime) {
+
+}
+
+class NigerianRecipe(name: String, preparationTime: Int, val jollofRice: Boolean) : Recipe(name, preparationTime) {
+
+}
+
+//Question 5
+class Product(val name: String, val price: Double, val quantity: Int) {
+    fun calculateTotalValue(): Double {
+        return price * quantity
+    }
+}
+
+
+
+
+
+//question6
+class Student(val name: String, val age: Int, val grades: List<Int>) {
+    fun calculateAverageGrade(): Double {
+        val sum = grades.sum()
+        return sum.toDouble() / grades.size
+    }
+
+    fun displayStudentInfo() {
+        println("Name: $name")
+        println("Age: $age")
+        println("Grades: $grades")
+    }
+
+    fun determinePassingStatus(): Boolean {
+        val averageGrade = calculateAverageGrade()
+        return averageGrade >= 60
+    }
+}
+
+
